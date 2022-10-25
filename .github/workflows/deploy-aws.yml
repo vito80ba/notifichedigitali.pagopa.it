@@ -44,8 +44,8 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  terraform:
-    name: "terraform-apply"
+  deploy:
+    name: "deploy"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -64,12 +64,7 @@ jobs:
         run: |
           npm ci
           npm run build
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: ${{ env.IAM_ROLE }}
-          aws-region: ${{ env.AWS_REGION }}
-      - name: Deploy
+      - name: s3-publish
         uses: jonelantha/gatsby-s3-action@v1
         with:
           dest-s3-bucket: ${{ env.AWS_REGION }}
