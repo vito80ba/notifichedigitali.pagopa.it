@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkpiattaforma_notifiche=self.webpackChunkpiattaforma_notifiche||[]).push([[756],{157089:function(n,i,t){t.r(i),t.d(i,{default:function(){return e}});var a=t(494001);function e(){a.Z&&window.location.replace("/cittadini")}},494001:function(n,i){var t="undefined"!=typeof window;i.Z=t}}]);
+//# sourceMappingURL=component---src-pages-index-ts-65b2bcfb1b6f7807d95b.js.map
