@@ -3,7 +3,7 @@ name: Gatsby Publish
 on:
   push:
     branches:
-      - main
+      - githubaction
 
 env:
   STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
