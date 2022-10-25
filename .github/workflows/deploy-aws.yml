@@ -16,10 +16,10 @@ on:
         - warning
         - debug
 env:
- AWS_REGION: eu-south-1
- IAM_ROLE: arn:aws:iam::516175876821:role/GitHubActionIACRole
- AW_BUCKET: preview-2764
- AWS_CLOUDFRONT_ID: E3RURJRAPWO5IP
+  AWS_REGION: eu-south-1
+  IAM_ROLE: arn:aws:iam::516175876821:role/GitHubActionIACRole
+  AW_BUCKET: preview-2764
+  AWS_CLOUDFRONT_ID: E3RURJRAPWO5IP
 
 jobs:
   deploy:
