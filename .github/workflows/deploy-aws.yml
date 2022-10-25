@@ -76,4 +76,4 @@ jobs:
         with:
           dest-s3-bucket: ${{ env.AWS_REGION }}
           cloudfront-id-to-invalidate: ${{ env.AWS_CLOUDFRONT_ID }}
-          public-source-path: src/app/src/public
+          public-source-path: src/app/public
