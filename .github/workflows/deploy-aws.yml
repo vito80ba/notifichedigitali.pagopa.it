@@ -31,7 +31,7 @@ env:
  AWS_REGION: eu-south-1
  IAM_ROLE: arn:aws:iam::516175876821:role/GitHubActionDeployS3
  ENVIRONMENT:  github.event.inputs.environment || 'dev'
- AW_BUCKET: preview-2764
+ AWS_BUCKET: preview-2764
  AWS_CLOUDFRONT_ID: E3RURJRAPWO5IP
 
 defaults:
