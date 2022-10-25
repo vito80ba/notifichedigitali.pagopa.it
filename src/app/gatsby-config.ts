@@ -4,6 +4,7 @@ import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname + `/.env.${process.env.NODE_ENV}` });
 
 const config: GatsbyConfig = {
+  pathPrefix: "/notifichedigitali.pagopa.it",
   siteMetadata: {
     metaTitle: `Piattaforma Notifiche`,
     canonicalURL: `http://localhost:8000`,
