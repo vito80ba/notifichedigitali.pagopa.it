@@ -62,8 +62,8 @@ jobs:
           node-version: 16
       - name: Build
         run: |
-          npm ci
-          npm run build
+          yarn install
+          yarn build
       - name: s3-publish
         uses: jonelantha/gatsby-s3-action@v1
         with:
