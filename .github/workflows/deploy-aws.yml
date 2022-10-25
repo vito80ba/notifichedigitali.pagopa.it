@@ -1,10 +1,13 @@
-name: "AWS Deploy"
+name: "Deploy AWS"
 
 on:
   push:
     branches:
-      - main            # could be 'master' on older repos
-   workflow_dispatch:
+      - main
+    paths:
+      - 'src/app/**'
+      - '.github/workflows/*.yml'
+  workflow_dispatch:
     inputs:
       logLevel:
         description: 'Log level'
@@ -15,23 +18,48 @@ on:
         - info
         - warning
         - debug
+      environment:
+        description: 'Which environment to update.'
+        type: choice
+        default: 'dev'
+        required: true 
+        options:
+        - dev
+        - prod
+
 env:
-  AWS_REGION: eu-south-1
-  IAM_ROLE: arn:aws:iam::516175876821:role/GitHubActionIACRole
-  AW_BUCKET: preview-2764
-  AWS_CLOUDFRONT_ID: E3RURJRAPWO5IP
+ AWS_REGION: eu-south-1
+ IAM_ROLE: arn:aws:iam::516175876821:role/GitHubActionIACRole
+ ENVIRONMENT:  github.event.inputs.environment || 'dev'
+ AW_BUCKET: preview-2764
+ AWS_CLOUDFRONT_ID: E3RURJRAPWO5IP
+
+defaults:
+  run:
+    shell: bash
+    working-directory: src/app
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
 
 jobs:
-  deploy:
+  terraform:
+    name: "terraform-apply"
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ env.IAM_ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
       - name: Build
         run: |
           npm ci
