@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+env:
+  STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
+  STRAPI_API_URL: ${{ secrets.STRAPI_API_URL }}
+  GATSBY_UPDATE_SCHEMA_SNAPSHOT: ${{ secrets.GATSBY_UPDATE_SCHEMA_SNAPSHOT }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
