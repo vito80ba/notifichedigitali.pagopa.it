@@ -74,6 +74,6 @@ jobs:
       - name: s3-publish
         uses: jonelantha/gatsby-s3-action@v1
         with:
-          dest-s3-bucket: ${{ env.AWS_REGION }}
+          dest-s3-bucket: ${{ env.AWS_BUCKET }}
           cloudfront-id-to-invalidate: ${{ env.AWS_CLOUDFRONT_ID }}
           public-source-path: src/app/public
