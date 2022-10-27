@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { Infoblock } from "@pagopa/mui-italia";
+import { Infoblock } from "@pagopa/mui-italia/dist/components/Infoblock";
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import altIcon from "../images/altIcon.png";
